@@ -13,10 +13,6 @@ import java.util.concurrent.TimeUnit;
 
 public class C03_DependsOn {
 
-
-
-
-
     WebDriver driver;
 
     @BeforeClass
@@ -39,7 +35,7 @@ public class C03_DependsOn {
     //2. Test : 1.Test basarili ise search Box’i kullanarak “Nutella” icin arama yapin ve aramanizin gerceklestigini Test edin
     @Test (dependsOnMethods = "test1") // bunu yapmadigimiz zaman sadece test2 calistirildigi zaman kod calismaz cunku
     // amazon a git komutu 1. methodun icinde ve amazon a gidilmedigi icin bu method calismaz.
-    // ama dependsOnMethods yazilinca sadece 2. method calistirilsa dahi amazona gidilir test1 de calisir.
+    // ama dependsOnMethods yazilinca sadece 2. method calistirilsa dahi amazona gidilir test1 de otomatik calisir.
     // eger test1 FAILED olursa test2 hic calismaz onu gormezden gelir. ve ignore yazar.
     public void test2() {
         WebElement aramaKutusu=driver.findElement(By.id("twotabsearchtextbox"));
