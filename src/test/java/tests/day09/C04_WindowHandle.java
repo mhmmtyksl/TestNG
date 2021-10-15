@@ -18,7 +18,7 @@ public class C04_WindowHandle extends TestBase {
         String actualYazi=driver.findElement(By.tagName("h3")).getText();
         String expectedYazi="Opening a new window";
 
-        SoftAssert softAssert=new SoftAssert();
+        SoftAssert softAssert=new SoftAssert(); // Soft Assert kullanmak icin once objeyi olusturduk
         softAssert.assertEquals(actualYazi,expectedYazi,"yazi istendigi gibi degil");
 
         //● Sayfa başlığının(title) “The Internet” olduğunu doğrulayın.
@@ -30,16 +30,17 @@ public class C04_WindowHandle extends TestBase {
         driver.findElement(By.linkText("Click Here")).click();
 
         //● Acilan yeni pencerenin sayfa başlığının (title) “New Window” oldugunu dogrulayin.
-        String actualYeniTitla=driver.getTitle();
+        driver.switchTo().window("");
+        String actualYeniTitle=driver.getTitle();
         String expectedYeniTitle="New Window";
 
-        softAssert.assertEquals(actualTitle,expectedTitle,"yeni title istenenden farkli");
+        softAssert.assertEquals(actualYeniTitle,expectedYeniTitle,"yeni sayfanin title i istenenden farkli");
 
-        softAssert.assertAll();
+        softAssert.assertAll(); // en sona bunu mutlaka yazmaliyiz.
         //● Sayfadaki textin “New Window” olduğunu doğrulayın.
         //● Bir önceki pencereye geri döndükten sonra sayfa başlığının “The Internet” olduğunu doğrulayın.
 
-
+        // bu class burda yarida birakildi devami day10 da C01 de
     }
 
 
