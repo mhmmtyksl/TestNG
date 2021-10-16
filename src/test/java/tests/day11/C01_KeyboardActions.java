@@ -27,8 +27,9 @@ public class C01_KeyboardActions extends TestBase {
 
         // aramaKutusu.sendKeys("samsung A71"); // simdiye kadar bu sekilde yapiyorduk
         // yani once locate edip sonra istedigimizi yaziyorduk
+        // simdi ogrenecegimiz yol her ne kadar daha uzun gibi girunsede daha kullanisli oldugunu gorecegiz
         /*
-        actions.click(aramaKutusu).perform();
+        actions.click(aramaKutusu).perform(); // sayfaya gittikten sonra oncelikle aramaKutusuna tikladik
         actions.sendKeys("samsung ").perform();
         actions.keyDown(Keys.SHIFT).perform();
         actions.sendKeys("a").perform();
@@ -37,12 +38,13 @@ public class C01_KeyboardActions extends TestBase {
         actions.sendKeys(Keys.ENTER).perform();
         */
         // bu yukardakileri asagidaki gibi kisaltabiliriz.
+        // functional programing den kaynakli bu kullanisli programlama
 
         actions.click(aramaKutusu)
                 .sendKeys("samsung ")
-                .keyDown(Keys.SHIFT)
+                .keyDown(Keys.SHIFT)// buyuk yazmak icin Shift tusuna bastik
                 .sendKeys("a")
-                .keyUp(Keys.SHIFT)
+                .keyUp(Keys.SHIFT) // Shift tusunu tekrar serbest biraktik
                 .sendKeys("71")
                 .sendKeys(Keys.ENTER).perform();
 
@@ -50,6 +52,7 @@ public class C01_KeyboardActions extends TestBase {
         //4- aramanin gerceklestigini test edin
         String arananKelime="samsung A71";
         String actualTitle=driver.getTitle();
+        // baslikta aradigimiz kelime varsa arama gerceklesmistir
 
         Assert.assertTrue(actualTitle.contains(arananKelime),"arama yapilamadi");
     }

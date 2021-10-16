@@ -23,8 +23,8 @@ public class C02_KeyboardActions extends TestBase {
         //3- video’yu gorecek kadar asagi inin
         Actions actions= new Actions(driver);
         actions.
-                sendKeys(Keys.PAGE_DOWN).
-                sendKeys(Keys.PAGE_DOWN).
+                sendKeys(Keys.PAGE_DOWN). // burada oncesinde denedik iki defa pagedown tusuna basmak gerekli
+                sendKeys(Keys.PAGE_DOWN). // o yuzden iki defa yaziyoruz
                 perform();
         Thread.sleep(3000);
 
@@ -36,6 +36,6 @@ public class C02_KeyboardActions extends TestBase {
         Thread.sleep(3000);
 
         //5- videoyu calistirdiginizi test edin
-        Assert.assertFalse(playTusu.isDisplayed());
+        Assert.assertFalse(playTusu.isDisplayed()); // burada play tusunun gorunmedigini yani videonun calistigini test ettik
     }
 }

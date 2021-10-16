@@ -22,15 +22,20 @@ public class C04_FileDownload extends TestBase {
 
         // - logo.png dosyasını indirelim
         driver.findElement(By.xpath("//a[text()='logo.png']")).click();
-        Thread.sleep(5000);
+        Thread.sleep(5000); // bu sureyi vermemizin sebebi indirabilmesi icin zaman vermek
     }
-        //4. Ardından isExist()  methodunda dosyanın başarıyla indirilip indirilmediğini test edelim
+        //4. Ardından isExist()  methoduyda dosyanın başarıyla indirilip indirilmediğini test edelim
         @Test
         public void isExist(){
 
         String dosyaYolu = System.getProperty("user.home")+ "/Downloads/logo.png";
             Assert.assertTrue(Files.exists(Paths.get(dosyaYolu)));
             System.out.println(dosyaYolu); // /Users/muhammetyuksel/Downloads/logo.png
+
+            // burada dikkat edilmesi gereken onemli bir husus var once mutlaka download testinin calkismasi gerekir
+            // aksi halde indirme islemi yapilmadigi icin isExists fail olur ve hata verir. bunun icin
+            // kodlara priorty yani sira verilebilir. bizim ornegimizde alfabetik olarak d once geldigi icin
+            // test calisti ama buna dikkat etmek gerekir
 
 
         }
