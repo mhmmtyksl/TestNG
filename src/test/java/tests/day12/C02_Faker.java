@@ -1,12 +1,12 @@
 package tests.day12;
 
 import com.github.javafaker.Faker;
+import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
-import org.testng.annotations.Test;
 import utilities.TestBase;
 
 public class C02_Faker extends TestBase {
